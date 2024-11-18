@@ -528,6 +528,7 @@ curl -L 'http://localhost:1026/ngsi-ld/v1/csourceRegistrations/' \
     },
     "endpoint": "http://vet"
 }'
+```
 
 A subsequent request on the  **Farmer's Context Broker** - port `1027`, will receive more information on the cow than previously - Farmer data + Vet data:
 
@@ -591,6 +592,8 @@ includes all the animals on the farm, plus all the animals which are requiring v
 
 It is still possible to retrieve the locally held data in the **Farmer's Context Broker** without invoking the registration, through adding the `local=true` parameter
 
+#### 9️⃣ Request:
+
 ```console
 curl -G -X GET \
     'http://localhost:1027/ngsi-ld/v1/entities/urn:ngsi-ld:Animal:cow001' \
@@ -638,6 +641,124 @@ The response now includes the Farmer's own data only without the `comment` attri
     }
 }
 ```
+
+A second source of federative data can be found within the `Contractor` tenant -  the information can be requested directly
+
+#### 1️⃣0️⃣ Request:
+
+```console
+curl -G -X GET \
+ 'http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:Animal:cow001' \
+    -H  'Accept: application/ld+json' \
+    -H  'Link: <http://context/ngsi-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
+    -H  'NGSILD-Tenant: contractor' \
+    -d 'attrs=name%2Ccomment'
+```
+
+#### Response:
+
+The response now includes the Contractor's own data only. Note that the `comment` attribute holds more recent information than the Vet's context broker. This is differenciated by the `observedAt` _Property-of-a-Property_
+
+```json
+{
+    "@context": [
+        "http://context/ngsi-context.jsonld",
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.6.jsonld"
+    ],
+    "id": "urn:ngsi-ld:Animal:cow001",
+    "type": "Animal",
+    "comment": {
+        "type": "Property",
+        "value": "Checked Hooves, Bull is OK.",
+        "observedAt": "2024-02-02T15:00:00.000Z"
+    }
+}
+```
+
+#### 1️⃣1️⃣ Request:
+
+The contractor data can be federated by the farmer as shown:
+
+```console
+curl -iX POST \
+    'http://localhost:1026/ngsi-ld/v1/csourceRegistrations/' \
+    -H 'Link: <http://context/ngsi-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json' \
+    -H 'NGSILD-Tenant: farmer' \
+    -H 'Content-Type: application/json' \
+    -d '{
+    "type": "ContextSourceRegistration",
+    "information": [
+        {
+            "entities": [
+                {
+                    "type": "Animal"
+                }
+            ]
+        }
+    ],
+    "mode": "inclusive",
+    "operations": [
+        "federationOps"
+    ],
+    "endpoint": "http://contractor"
+}'
+```
+
+
+
+#### 1️⃣2️⃣ Request:
+
+Now when requesting data from the farmer's context broker, the response includes the most recent information found across all brokers in the federation.
+
+```console
+curl -G -X GET \
+ 'http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:Animal:cow001' \
+    -H  'Accept: application/ld+json' \
+    -H  'Link: <http://context/ngsi-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
+    -H  'NGSILD-Tenant: farmer' \
+    -d 'attrs=name%2Ccomment'
+```
+
+
+#### 1️⃣2️⃣ Request:
+
+The response has requested `comment` data from three sources - the farmer, the vet and the contractor. The attribute value with the most recent timestamp has been returned.
+
+```json
+{
+    "@context": [
+        "http://context/ngsi-context.jsonld",
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.6.jsonld"
+    ],
+    "id": "urn:ngsi-ld:Animal:cow001",
+    "type": "Animal",
+    "comment": {
+        "type": "Property",
+        "value": "Checked Hooves, Bull is OK.",
+        "observedAt": "2024-02-02T15:00:00.000Z"
+    }
+}
+```
+
+
+### Creating an Exclusive registration
+
+`exclusive` registrations should be familiar to anyone who has used an IoT Agent with NGSI-v2. An inclusive registration informs a context broker that a given set of attributes for an `id` is held externally - in another context source. Frequently this context source itself is not a context broker.
+
+Imagine for example a sensor system where you do not want to rely on the sensor pushing values to a context broker, but every time a request is made you wish to obtain values direct from the device itself. This sort of "lazy" attribute technique is useful for GET requests when the attribute would not usually send data a regular intervals - requesting `batteryLevel` of charge for example. `exclusive` registrations can also be used for actuators where a PATCH request on the context broker should actuate a response on a device in the real world.
+
+`exclusive` registrations form a proxy for the local data within the context broker - they differ from `redirection` registrations in that there can only ever be a single source for the registered attributes, whereas in theory multiple `redirection` registrations could be in place.
+
+
+| Request    | Action at **Context Broker** (Primary)                                               | Action at **Context Source** (Device)                                                                     |
+| ---------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| **GET**    | Pass attributes request to **Context Provider**, combine the result of device attributes and locally held attributes *(if any)*    | Respond to context broker with the combined result of the GET request  |
+| **PATCH**  | Deal with local attributes locally, Pass other attributes to **Context Consumer**, proxy back the overall HTTP status code. | Update the **Context Source**, Respond to the context broker with a status code |
+| **DELETE** | Delete local attributes locally, Pass attribute request to **Context Consumer**                                        | Delete the entity within the **Context Source**, Respond to the context broker with a status code |
+
+
+The result of a `exclusive` registration is that no data for the registered attributes are held directly in the context broker and a single A **Context Source** acts as a proxy location for the request instead.
+
 
 
 ---
