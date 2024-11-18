@@ -752,10 +752,9 @@ Imagine for example a sensor system where you do not want to rely on the sensor 
 
 | Request    | Action at **Context Broker** (Primary)                                               | Action at **Context Source** (Device)                                                                     |
 | ---------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| **GET**    | Pass attributes request to **Context Provider**, combine the result of device attributes and locally held attributes *(if any)*    | Respond to context broker with the combined result of the GET request  |
-| **PATCH**  | Deal with local attributes locally, Pass other attributes to **Context Consumer**, proxy back the overall HTTP status code. | Update the **Context Source**, Respond to the context broker with a status code |
-| **DELETE** | Delete local attributes locally, Pass attribute request to **Context Consumer**                                        | Delete the entity within the **Context Source**, Respond to the context broker with a status code |
-
+| **GET**    | Pass attributes request to **Context Provider**, combine the result of device attributes and locally held attributes *(if any)*    | Respond to context broker with the registered attributes of the GET request  |
+| **PATCH**  | Deal with local attributes locally *(if any)*, Pass other attributes to **Context Consumer**, proxy back the overall HTTP status code. | Update the registered attributes n the **Context Source**, Respond to the context broker with a status code |
+| **DELETE** | Delete local attributes locally *(if any)*, Pass attribute request to **Context Consumer**                                        | Delete the attributes held within the **Context Source**, Respond to the context broker with a status code |
 
 The result of a `exclusive` registration is that no data for the registered attributes are held directly in the context broker and a single A **Context Source** acts as a proxy location for the request instead.
 
