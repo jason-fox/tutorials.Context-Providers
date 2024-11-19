@@ -137,7 +137,7 @@ services:
     labels:
       org.fiware: 'tutorial'
     image: quay.io/fiware/tutorials.forwarder
-    hostname: 'openiot'
+    hostname: 'devices'
     container_name: cb-devices
     ports:
       - 1028:80
