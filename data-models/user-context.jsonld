@@ -12,7 +12,7 @@
     "tutorial": "https://ngsi-ld-tutorials.readthedocs.io/en/latest/datamodels.html#",
     "Building": "building:Building",
     "Device": "device:Device",
-    "Animal": "agrifood:animal",
+    "Animal": "agrifood:Animal",
     "Female": "schema:Female",
     "FillingLevelSensor": "tutorial:FillingLevelSensor",
     "Herbicide": "tutorial:Product",
