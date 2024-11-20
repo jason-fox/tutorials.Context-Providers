@@ -640,6 +640,209 @@
 			"response": []
 		},
 		{
+			"name": "Farmer - Update heartRate",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/ld+json"
+					},
+					{
+						"key": "Link",
+						"value": "<{{ngsi-context.jsonld}}>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\""
+					},
+					{
+						"key": "NGSILD-Tenant",
+						"value": "farmer",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"heartRate\": 20\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{farmer}}/ngsi-ld/v1/entities/urn:ngsi-ld:Animal:cow001",
+					"protocol": "http",
+					"host": [
+						"{{farmer}}"
+					],
+					"path": [
+						"ngsi-ld",
+						"v1",
+						"entities",
+						"urn:ngsi-ld:Animal:cow001"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "Store",
+							"description": "Entity type, to avoid ambiguity in case there are several entities with the same entity id",
+							"disabled": true
+						},
+						{
+							"key": "attrs",
+							"value": "name,comment",
+							"description": "Ordered list of attribute names to display",
+							"disabled": true
+						},
+						{
+							"key": "local",
+							"value": "true",
+							"disabled": true
+						},
+						{
+							"key": "attrs",
+							"value": "comment",
+							"disabled": true
+						}
+					]
+				},
+				"description": "This example returns the data of `urn:ngsi-ld:Building:farm001`. The NGSI-LD `@context` is supplied as a [`Link` header](https://www.w3.org/wiki/LinkHeader) to define the entities returned. The `ngsi-context.jsonld` `@context` file is just supplying short names for every attribute.\n\nThe full link header syntax can be seen below:\n\n```text\nLink: <https://fiware.github.io/data-models/context.jsonld>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\n```\n\nThe standard HTTP `Link` header allows metadata (in this case the `@context`) to be passed in without actually touching\nthe resource in question. In the case of NGSI-LD, the metadata is a file in `application/ld+json` format."
+			},
+			"response": []
+		},
+		{
+			"name": "Farmer - AgriParcels",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/ld+json"
+					},
+					{
+						"key": "Link",
+						"value": "<{{ngsi-context.jsonld}}>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\""
+					},
+					{
+						"key": "NGSILD-Tenant",
+						"value": "farmer",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://{{farmer}}/ngsi-ld/v1/entities/?type=AgriParcel",
+					"protocol": "http",
+					"host": [
+						"{{farmer}}"
+					],
+					"path": [
+						"ngsi-ld",
+						"v1",
+						"entities",
+						""
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "Store",
+							"description": "Entity type, to avoid ambiguity in case there are several entities with the same entity id",
+							"disabled": true
+						},
+						{
+							"key": "type",
+							"value": "AgriParcel"
+						}
+					]
+				},
+				"description": "This example returns the data of `urn:ngsi-ld:Building:farm001`. The NGSI-LD `@context` is supplied as a [`Link` header](https://www.w3.org/wiki/LinkHeader) to define the entities returned. The `ngsi-context.jsonld` `@context` file is just supplying short names for every attribute.\n\nThe full link header syntax can be seen below:\n\n```text\nLink: <https://fiware.github.io/data-models/context.jsonld>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\n```\n\nThe standard HTTP `Link` header allows metadata (in this case the `@context`) to be passed in without actually touching\nthe resource in question. In the case of NGSI-LD, the metadata is a file in `application/ld+json` format."
+			},
+			"response": []
+		},
+		{
+			"name": "Weather - AgriParcels",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Link",
+						"value": "<{{ngsi-context.jsonld}}>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\""
+					},
+					{
+						"key": "NGSILD-Tenant",
+						"value": "weather"
+					}
+				],
+				"url": {
+					"raw": "http://{{weather}}/ngsi-ld/v1/entities/?type=AgriParcel&attrs=temperature",
+					"protocol": "http",
+					"host": [
+						"{{weather}}"
+					],
+					"path": [
+						"ngsi-ld",
+						"v1",
+						"entities",
+						""
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "AgriParcel",
+							"description": "Entity type, to avoid ambiguity in case there are several entities with the same entity id"
+						},
+						{
+							"key": "attrs",
+							"value": "temperature"
+						}
+					]
+				},
+				"description": "This example returns the data of `urn:ngsi-ld:Building:farm001`. The NGSI-LD `@context` is supplied as a [`Link` header](https://www.w3.org/wiki/LinkHeader) to define the entities returned. The `ngsi-context.jsonld` `@context` file is just supplying short names for every attribute.\n\nThe full link header syntax can be seen below:\n\n```text\nLink: <https://fiware.github.io/data-models/context.jsonld>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\n```\n\nThe standard HTTP `Link` header allows metadata (in this case the `@context`) to be passed in without actually touching\nthe resource in question. In the case of NGSI-LD, the metadata is a file in `application/ld+json` format."
+			},
+			"response": []
+		},
+		{
+			"name": "Farmer to Weather Station - Auxiliary Registration",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Link",
+						"value": "<{{ngsi-context.jsonld}}>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json"
+					},
+					{
+						"key": "NGSILD-Tenant",
+						"value": "farmer",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"type\": \"ContextSourceRegistration\",\n  \"information\": [\n    {\n      \"entities\": [\n        {\n          \"type\": \"AgriPacel\"\n        }\n      ],\n      \"propertyNames\": [\"temperature\"]\n    }\n  ],\n  \"mode\": \"auxiliary\",\n  \"operations\": [\n    \"retrieveOps\"\n  ],\n  \"endpoint\": \"http://weather\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{farmer}}/ngsi-ld/v1/csourceRegistrations/",
+					"protocol": "http",
+					"host": [
+						"{{farmer}}"
+					],
+					"path": [
+						"ngsi-ld",
+						"v1",
+						"csourceRegistrations",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "FMIS -types",
 			"request": {
 				"method": "GET",
@@ -797,7 +1000,7 @@
 		},
 		{
 			"key": "vet",
-			"value": "localhost:1028",
+			"value": "localhost:1030",
 			"type": "string"
 		},
 		{
@@ -807,7 +1010,12 @@
 		},
 		{
 			"key": "devices",
-			"value": "localhost:1030",
+			"value": "localhost:1028",
+			"type": "string"
+		},
+		{
+			"key": "weather",
+			"value": "localhost:1031",
 			"type": "string"
 		}
 	]

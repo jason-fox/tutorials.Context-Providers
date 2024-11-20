@@ -389,6 +389,10 @@ curl -s -X POST 'http://'"${CONTEXT_BROKER}"'/ngsi-ld/v1/entityOperations/upsert
       "type": "Relationship", 
       "object": "urn:ngsi-ld:AgriCrop:BuckWheat"
     },
+    "cropStatus": {
+      "type": "VocabularyProperty", 
+      "vocab": "seeded"
+    },
     "temperature": {
       "type": "Property",  
       "value": 15.4, "unitCode": "CEL",
@@ -401,6 +405,10 @@ curl -s -X POST 'http://'"${CONTEXT_BROKER}"'/ngsi-ld/v1/entityOperations/upsert
     "name": {
       "type": "Property", "value": "Cornfield"
     },
+     "cropStatus": {
+      "type": "VocabularyProperty", 
+      "vocab": "growing"
+    },
     "cropType": {
       "type": "Relationship", 
       "object": "urn:ngsi-ld:AgriCrop:Corn"
@@ -411,6 +419,10 @@ curl -s -X POST 'http://'"${CONTEXT_BROKER}"'/ngsi-ld/v1/entityOperations/upsert
     "type": "AgriParcel",
     "name": {
       "type": "Property", "value": "Pasture"
+    },
+     "cropStatus": {
+      "type": "VocabularyProperty", 
+      "vocab": "maturing"
     },
     "cropType": {
       "type": "Relationship", 

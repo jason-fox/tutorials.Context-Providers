@@ -169,6 +169,18 @@ services:
       - TENANT=vet
       - DEBUG=broker:*
 
+  weather:
+    labels:
+      org.fiware: 'tutorial'
+    image: quay.io/fiware/tutorials.forwarder
+    hostname: 'vet'
+    container_name: cb-weather
+    ports:
+      - 1031:80
+    environment:
+      - TENANT=weather
+      - DEBUG=broker:*
+
 networks:
   default:
     labels:
