@@ -145,7 +145,7 @@ An **Animal** can be `locatedAt` either a **Building** or an **AgriParcel**
 - A relationship to the owner of the building.
 
 An AgriParcel is a plot of land on the farm, sometimes called a partfield. **AgriParcel** entities would have
-  properties such as:
+properties such as:
 
 - A name of the parcel e.g. "The Northern Hay Meadow"
 - A physical location e.g. _52.5075 N, 13.3903 E_
@@ -213,31 +213,31 @@ proxy has also been added. To visualize and interact with the Context we will ad
 
 Therefore the overall architecture will consist of the following elements:
 
--  The [Orion Context Broker](https://fiware-orion.readthedocs.io/en/latest/) which will send and receive requests
+- The [Orion Context Broker](https://fiware-orion.readthedocs.io/en/latest/) which will send and receive requests
   using
-   [NGSI-LD](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/spec/updated/generated/full_api.json).
-   This is split into the following systems, each running on their own tenant:
-   -  The default tenant which holds **Building** data and is used for collating data from all systems
-   -  The `farmer` tenant which holds **Animal**, **Device** and **AgriParcel** information
-   -  The `contractor` tenant holds **Animal** data about animals needing additional care.
-   -  The `vet` tenant which holds **Animal** data about new-born animals
--  The FIWARE [IoT Agent for UltraLight 2.0](https://fiware-iotagent-ul.readthedocs.io/en/latest/) which will receive
-     southbound requests using
-    [NGSI-LD](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/spec/updated/generated/full_api.json)
-    and convert them to
-    [UltraLight 2.0](https://fiware-iotagent-ul.readthedocs.io/en/latest/usermanual/index.html#user-programmers-manual)
+  [NGSI-LD](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/spec/updated/generated/full_api.json).
+  This is split into the following systems, each running on their own tenant:
+  - The default tenant which holds **Building** data and is used for collating data from all systems
+  - The `farmer` tenant which holds **Animal**, **Device** and **AgriParcel** information
+  - The `contractor` tenant holds **Animal** data about animals needing additional care.
+  - The `vet` tenant which holds **Animal** data about new-born animals
+- The FIWARE [IoT Agent for UltraLight 2.0](https://fiware-iotagent-ul.readthedocs.io/en/latest/) which will receive
+  southbound requests using
+  [NGSI-LD](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/spec/updated/generated/full_api.json)
+  and convert them to
+  [UltraLight 2.0](https://fiware-iotagent-ul.readthedocs.io/en/latest/usermanual/index.html#user-programmers-manual)
   commands for the devices
--   The underlying [MongoDB](https://www.mongodb.com/) database :
-    -  Used by the **Orion Context Broker** to hold context data information such as data entities, subscriptions and
+- The underlying [MongoDB](https://www.mongodb.com/) database :
+  - Used by the **Orion Context Broker** to hold context data information such as data entities, subscriptions and
     registrations
-    -  Used by the **IoT Agent** to hold device information such as device URLs and Keys
--  An HTTP **Web-Server** which offers static `@context` files defining the context entities within the system.
--  The **Tutorial Application** does the following:
-   -  Acts as set of dummy [agricultural IoT devices](https://github.com/FIWARE/tutorials.IoT-Sensors/tree/NGSI-LD)
-  using the
-   [UltraLight 2.0](https://fiware-iotagent-ul.readthedocs.io/en/latest/usermanual/index.html#user-programmers-manual)
-   protocol running over HTTP.
--  Displays a running Farm Management Information System (FMIS)
+  - Used by the **IoT Agent** to hold device information such as device URLs and Keys
+- An HTTP **Web-Server** which offers static `@context` files defining the context entities within the system.
+- The **Tutorial Application** does the following:
+  - Acts as set of dummy [agricultural IoT devices](https://github.com/FIWARE/tutorials.IoT-Sensors/tree/NGSI-LD)
+    using the
+    [UltraLight 2.0](https://fiware-iotagent-ul.readthedocs.io/en/latest/usermanual/index.html#user-programmers-manual)
+    protocol running over HTTP.
+  - Displays a running Farm Management Information System (FMIS)
 
 Since all interactions between the elements are initiated by HTTP requests, the entities can be containerized and run
 from exposed ports.
