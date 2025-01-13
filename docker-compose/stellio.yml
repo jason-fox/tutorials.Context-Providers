@@ -22,11 +22,11 @@ services:
     hostname: stellio
     labels:
       org.fiware: 'tutorial'
-    image: stellio/stellio-api-gateway:${STELLIO_DOCKER_TAG}
+    image: quay.io/fiware/stellio-api-gateway:${STELLIO_DOCKER_TAG}
     environment:
       - SPRING_PROFILES_ACTIVE=docker
     ports:
-      - ${EXPOSED_PORT:-1026}:${STELLIO_PORT:-9090}
+      - "${EXPOSED_PORT}:${STELLIO_PORT}"
     networks:
       - default
 
@@ -34,7 +34,7 @@ services:
     container_name: stellio-search-service
     labels:
       org.fiware: 'tutorial'
-    image: stellio/stellio-search-service:${STELLIO_DOCKER_TAG}
+    image: quay.io/fiware/stellio-search-service:${STELLIO_DOCKER_TAG}
     environment:
       - SPRING_PROFILES_ACTIVE=docker
       - SPRING_R2DBC_URL=r2dbc:postgresql://postgres/stellio_search
@@ -48,6 +48,18 @@ services:
       - APPLICATION_TENANTS_1_NAME=openiot
       - APPLICATION_TENANTS_1_ISSUER=https://sso.stellio.io/auth/realms/openiot
       - APPLICATION_TENANTS_1_DBSCHEMA=openiot
+      - APPLICATION_TENANTS_2_NAME=farmer
+      - APPLICATION_TENANTS_2_ISSUER=https://sso.stellio.io/auth/realms/farmer
+      - APPLICATION_TENANTS_2_DBSCHEMA=farmer
+      - APPLICATION_TENANTS_3_NAME=vet
+      - APPLICATION_TENANTS_3_ISSUER=https://sso.stellio.io/auth/realms/vet
+      - APPLICATION_TENANTS_3_DBSCHEMA=vet
+      - APPLICATION_TENANTS_4_NAME=contractor
+      - APPLICATION_TENANTS_4_ISSUER=https://sso.stellio.io/auth/realms/contractor
+      - APPLICATION_TENANTS_4_DBSCHEMA=contractor
+      - APPLICATION_TENANTS_5_NAME=weather
+      - APPLICATION_TENANTS_5_ISSUER=https://sso.stellio.io/auth/realms/weather
+      - APPLICATION_TENANTS_5_DBSCHEMA=weather
       - APPLICATION_PAGINATION_LIMIT-DEFAULT=30
       - APPLICATION_PAGINATION_LIMIT-MAX=1000
     ports:
@@ -65,7 +77,7 @@ services:
     container_name: stellio-subscription-service
     labels:
       org.fiware: 'tutorial'
-    image: stellio/stellio-subscription-service:${STELLIO_DOCKER_TAG}
+    image: quay.io/fiware/stellio-subscription-service:${STELLIO_DOCKER_TAG}    
     environment:
       - SPRING_PROFILES_ACTIVE=docker
       - SPRING_R2DBC_URL=r2dbc:postgresql://postgres/stellio_subscription
@@ -79,12 +91,6 @@ services:
       - APPLICATION_TENANTS_1_NAME=openiot
       - APPLICATION_TENANTS_1_ISSUER=https://sso.stellio.io/auth/realms/openiot
       - APPLICATION_TENANTS_1_DBSCHEMA=openiot
-      - APPLICATION_TENANTS_2_NAME=vet
-      - APPLICATION_TENANTS_2_ISSUER=https://sso.stellio.io/auth/realms/vet
-      - APPLICATION_TENANTS_2_DBSCHEMA=vet
-      - APPLICATION_TENANTS_3_NAME=contractor
-      - APPLICATION_TENANTS_3_ISSUER=https://sso.stellio.io/auth/realms/contractor
-      - APPLICATION_TENANTS_3_DBSCHEMA=contractor
       - APPLICATION_PAGINATION_LIMIT-DEFAULT=30
       - APPLICATION_PAGINATION_LIMIT-MAX=1000
     ports:
@@ -101,7 +107,7 @@ services:
   kafka:
     labels:
       org.fiware: 'tutorial'
-    image: confluentinc/cp-kafka:7.3.1
+    image: confluentinc/cp-kafka:7.6.0
     container_name: kafka
     ports:
       - 29092:29092
@@ -120,9 +126,7 @@ services:
       KAFKA_INTER_BROKER_LISTENER_NAME: 'PLAINTEXT'
       KAFKA_CONTROLLER_LISTENER_NAMES: 'CONTROLLER'
       KAFKA_LOG4J_ROOT_LOGLEVEL: INFO
-    volumes:
-      - ./stellio/kafka/update_run.sh:/tmp/update_run.sh
-    command: "bash -c 'if [ ! -f /tmp/update_run.sh ]; then echo \"ERROR: Did you forget the update_run.sh file that came with this docker-compose.yml file?\" && exit 1 ; else /tmp/update_run.sh && /etc/confluent/docker/run ; fi'"
+      CLUSTER_ID: NjExODZhMWVjMzllMTFlZm
 
 
   # Databases
@@ -130,7 +134,6 @@ services:
     labels:
       org.fiware: 'tutorial'
     image: stellio/stellio-timescale-postgis:${STELLIO_TIMESCALE_POSTGIS}
-
     hostname: postgres
     container_name: db-postgres
     environment:

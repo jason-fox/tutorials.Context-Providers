@@ -32,13 +32,13 @@ curl -s -X POST 'http://'"${CONTEXT_BROKER}"'/ngsi-ld/v1/entityOperations/upsert
       "type": "Property", "value": "Beany"
     },
     "sex": {
-      "type": "VocabularyProperty", "vocab": "Male"
+      "type": "VocabProperty", "vocab": "Male"
     },
     "phenologicalCondition": {
-      "type": "VocabularyProperty", "vocab": "maleAdult"
+      "type": "VocabProperty", "vocab": "maleAdult"
     },
     "reproductiveCondition": {
-      "type": "VocabularyProperty", "vocab": "active",
+      "type": "VocabProperty", "vocab": "active",
       "observedAt": "2024-01-01T15:00:00.000Z"
     },
     "legalId": {
@@ -55,13 +55,13 @@ curl -s -X POST 'http://'"${CONTEXT_BROKER}"'/ngsi-ld/v1/entityOperations/upsert
       "type": "Property", "value": "Bubblegum"
     },
     "sex": {
-      "type": "VocabularyProperty", "vocab": "Male"
+      "type": "VocabProperty", "vocab": "Male"
     },
     "phenologicalCondition": {
-      "type": "VocabularyProperty", "vocab": "maleAdult"
+      "type": "VocabProperty", "vocab": "maleAdult"
     },
     "reproductiveCondition": {
-      "type": "VocabularyProperty", "vocab": "active",
+      "type": "VocabProperty", "vocab": "active",
       "observedAt": "2024-01-01T15:00:00.000Z"
     },
     "legalId": {
@@ -81,13 +81,13 @@ curl -s -X POST 'http://'"${CONTEXT_BROKER}"'/ngsi-ld/v1/entityOperations/upsert
       "type": "Property", "value": "Trotter"
     },
     "sex": {
-      "type": "VocabularyProperty", "vocab": "Female"
+      "type": "VocabProperty", "vocab": "Female"
     },
     "phenologicalCondition": {
-      "type": "VocabularyProperty", "vocab": "femaleAdult"
+      "type": "VocabProperty", "vocab": "femaleAdult"
     },
     "reproductiveCondition": {
-      "type": "VocabularyProperty", "vocab": "active",
+      "type": "VocabProperty", "vocab": "active",
       "observedAt": "2024-01-01T15:00:00.000Z"
     },
     "legalId": {
@@ -104,13 +104,13 @@ curl -s -X POST 'http://'"${CONTEXT_BROKER}"'/ngsi-ld/v1/entityOperations/upsert
       "type": "Property", "value": "Fuchshia"
     },
     "sex": {
-      "type": "VocabularyProperty", "vocab": "Female"
+      "type": "VocabProperty", "vocab": "Female"
     },
     "phenologicalCondition": {
-      "type": "VocabularyProperty", "vocab": "femaleAdult"
+      "type": "VocabProperty", "vocab": "femaleAdult"
     },
     "reproductiveCondition": {
-      "type": "VocabularyProperty", "vocab": "active",
+      "type": "VocabProperty", "vocab": "active",
       "observedAt": "2024-01-01T15:00:00.000Z"
     },
     "legalId": {
@@ -130,13 +130,13 @@ curl -s -X POST 'http://'"${CONTEXT_BROKER}"'/ngsi-ld/v1/entityOperations/upsert
       "type": "Property", "value": "Petal"
     },
     "sex": {
-      "type": "VocabularyProperty", "vocab": "Female"
+      "type": "VocabProperty", "vocab": "Female"
     },
     "phenologicalCondition": {
-      "type": "VocabularyProperty", "vocab": "femaleAdult"
+      "type": "VocabProperty", "vocab": "femaleAdult"
     },
     "reproductiveCondition": {
-      "type": "VocabularyProperty", "vocab": "active",
+      "type": "VocabProperty", "vocab": "active",
       "observedAt": "2024-01-01T15:00:00.000Z"
     },
     "legalId": {
@@ -153,13 +153,13 @@ curl -s -X POST 'http://'"${CONTEXT_BROKER}"'/ngsi-ld/v1/entityOperations/upsert
       "type": "Property", "value": "Flamingo"
     },
     "sex": {
-      "type": "VocabularyProperty", "vocab": "Male"
+      "type": "VocabProperty", "vocab": "Male"
     },
     "phenologicalCondition": {
-      "type": "VocabularyProperty", "vocab": "maleAdult"
+      "type": "VocabProperty", "vocab": "maleAdult"
     },
     "reproductiveCondition": {
-      "type": "VocabularyProperty", "vocab": "active",
+      "type": "VocabProperty", "vocab": "active",
       "observedAt": "2024-01-01T15:00:00.000Z"
     },
     "legalId": {
@@ -179,13 +179,13 @@ curl -s -X POST 'http://'"${CONTEXT_BROKER}"'/ngsi-ld/v1/entityOperations/upsert
       "type": "Property", "value": "River"
     },
     "sex": {
-      "type": "VocabularyProperty", "vocab": "Female"
+      "type": "VocabProperty", "vocab": "Female"
     },
     "phenologicalCondition": {
-      "type": "VocabularyProperty", "vocab": "femaleAdult"
+      "type": "VocabProperty", "vocab": "femaleAdult"
     },
     "reproductiveCondition": {
-      "type": "VocabularyProperty", "vocab": "active",
+      "type": "VocabProperty", "vocab": "active",
       "observedAt": "2024-01-01T15:00:00.000Z"
     },
     "legalId": {
@@ -202,13 +202,13 @@ curl -s -X POST 'http://'"${CONTEXT_BROKER}"'/ngsi-ld/v1/entityOperations/upsert
       "type": "Property", "value": "Salmon"
     },
     "sex": {
-      "type": "VocabularyProperty", "vocab": "Female"
+      "type": "VocabProperty", "vocab": "Female"
     },
     "phenologicalCondition": {
-      "type": "VocabularyProperty", "vocab": "femaleAdult"
+      "type": "VocabProperty", "vocab": "femaleAdult"
     },
     "reproductiveCondition": {
-      "type": "VocabularyProperty", "vocab": "active",
+      "type": "VocabProperty", "vocab": "active",
       "observedAt": "2024-01-01T15:00:00.000Z"
     },
     "legalId": {
@@ -228,13 +228,13 @@ curl -s -X POST 'http://'"${CONTEXT_BROKER}"'/ngsi-ld/v1/entityOperations/upsert
       "type": "Property", "value": "Sun"
     },
     "sex": {
-      "type": "VocabularyProperty", "vocab": "Female"
+      "type": "VocabProperty", "vocab": "Female"
     },
     "phenologicalCondition": {
-      "type": "VocabularyProperty", "vocab": "femaleAdult"
+      "type": "VocabProperty", "vocab": "femaleAdult"
     },
     "reproductiveCondition": {
-      "type": "VocabularyProperty", "vocab": "active",
+      "type": "VocabProperty", "vocab": "active",
       "observedAt": "2024-01-01T15:00:00.000Z"
     },
     "legalId": {
@@ -254,17 +254,17 @@ curl -s -X POST 'http://'"${CONTEXT_BROKER}"'/ngsi-ld/v1/entityOperations/upsert
       "type": "Property", "value": "Twilight"
     },
     "sex": {
-      "type": "VocabularyProperty", "vocab": "Female"
+      "type": "VocabProperty", "vocab": "Female"
     },
     "phenologicalCondition": {
-      "type": "VocabularyProperty", "vocab": "femaleAdult"
+      "type": "VocabProperty", "vocab": "femaleAdult"
     },
     "healthCondition": {
-      "type": "VocabularyProperty", "vocab": "inTreatment",
+      "type": "VocabProperty", "vocab": "inTreatment",
       "observedAt": "2024-01-01T15:00:00.000Z"
     },
     "reproductiveCondition": {
-      "type": "VocabularyProperty", "vocab": "inCalf",
+      "type": "VocabProperty", "vocab": "inCalf",
       "observedAt": "2024-01-01T15:00:00.000Z"
     },
     "legalId": {
@@ -288,13 +288,13 @@ curl -s -X POST 'http://'"${CONTEXT_BROKER}"'/ngsi-ld/v1/entityOperations/upsert
       "type": "Property", "value": "Diamond"
     },
     "sex": {
-      "type": "VocabularyProperty", "vocab": "Female"
+      "type": "VocabProperty", "vocab": "Female"
     },
     "phenologicalCondition": {
-      "type": "VocabularyProperty", "vocab": "femaleAdult"
+      "type": "VocabProperty", "vocab": "femaleAdult"
     },
     "reproductiveCondition": {
-      "type": "VocabularyProperty", "vocab": "active",
+      "type": "VocabProperty", "vocab": "active",
       "observedAt": "2024-01-01T15:00:00.000Z"
     },
     "legalId": {
@@ -314,13 +314,13 @@ curl -s -X POST 'http://'"${CONTEXT_BROKER}"'/ngsi-ld/v1/entityOperations/upsert
       "type": "Property", "value": "Pollen"
     },
     "sex": {
-      "type": "VocabularyProperty", "vocab": "Female"
+      "type": "VocabProperty", "vocab": "Female"
     },
     "phenologicalCondition": {
-      "type": "VocabularyProperty", "vocab": "femaleAdult"
+      "type": "VocabProperty", "vocab": "femaleAdult"
     },
     "reproductiveCondition": {
-      "type": "VocabularyProperty", "vocab": "inHeat",
+      "type": "VocabProperty", "vocab": "inHeat",
       "observedAt": "2024-01-01T15:00:00.000Z"
     },
     "legalId": {
@@ -340,13 +340,13 @@ curl -s -X POST 'http://'"${CONTEXT_BROKER}"'/ngsi-ld/v1/entityOperations/upsert
       "type": "Property", "value": "Juicey"
     },
     "sex": {
-      "type": "VocabularyProperty", "vocab": "Female"
+      "type": "VocabProperty", "vocab": "Female"
     },
     "phenologicalCondition": {
-      "type": "VocabularyProperty", "vocab": "femaleAdult"
+      "type": "VocabProperty", "vocab": "femaleAdult"
     },
     "reproductiveCondition": {
-      "type": "VocabularyProperty", "vocab": "active",
+      "type": "VocabProperty", "vocab": "active",
       "observedAt": "2024-01-01T15:00:00.000Z"
     },
     "legalId": {
@@ -366,13 +366,13 @@ curl -s -X POST 'http://'"${CONTEXT_BROKER}"'/ngsi-ld/v1/entityOperations/upsert
       "type": "Property", "value": "Tulip"
     },
     "sex": {
-      "type": "VocabularyProperty", "vocab": "Female"
+      "type": "VocabProperty", "vocab": "Female"
     },
     "phenologicalCondition": {
-      "type": "VocabularyProperty", "vocab": "femaleAdult"
+      "type": "VocabProperty", "vocab": "femaleAdult"
     },
     "reproductiveCondition": {
-      "type": "VocabularyProperty", "vocab": "active",
+      "type": "VocabProperty", "vocab": "active",
       "observedAt": "2024-01-01T15:00:00.000Z"
     },
     "legalId": {
@@ -390,7 +390,7 @@ curl -s -X POST 'http://'"${CONTEXT_BROKER}"'/ngsi-ld/v1/entityOperations/upsert
       "object": "urn:ngsi-ld:AgriCrop:BuckWheat"
     },
     "cropStatus": {
-      "type": "VocabularyProperty", 
+      "type": "VocabProperty", 
       "vocab": "seeded"
     },
     "temperature": {
@@ -406,7 +406,7 @@ curl -s -X POST 'http://'"${CONTEXT_BROKER}"'/ngsi-ld/v1/entityOperations/upsert
       "type": "Property", "value": "Cornfield"
     },
      "cropStatus": {
-      "type": "VocabularyProperty", 
+      "type": "VocabProperty", 
       "vocab": "growing"
     },
     "cropType": {
@@ -421,7 +421,7 @@ curl -s -X POST 'http://'"${CONTEXT_BROKER}"'/ngsi-ld/v1/entityOperations/upsert
       "type": "Property", "value": "Pasture"
     },
      "cropStatus": {
-      "type": "VocabularyProperty", 
+      "type": "VocabProperty", 
       "vocab": "maturing"
     },
     "cropType": {
@@ -453,13 +453,13 @@ curl -s -X POST 'http://'"${CONTEXT_BROKER}"'/ngsi-ld/v1/entityOperations/upsert
       "type": "Property", "value": "Bumble"
     },
     "sex": {
-      "type": "VocabularyProperty", "vocab": "Male"
+      "type": "VocabProperty", "vocab": "Male"
     },
     "phenologicalCondition": {
-      "type": "VocabularyProperty", "vocab": "grazingBaby"
+      "type": "VocabProperty", "vocab": "grazingBaby"
     },
     "reproductiveCondition": {
-      "type": "VocabularyProperty", "vocab": "noStatus"
+      "type": "VocabProperty", "vocab": "noStatus"
     },
     "legalId": {
       "type": "Property", "value": "M-bull101-Bumble"
@@ -487,13 +487,13 @@ curl -s -X POST 'http://'"${CONTEXT_BROKER}"'/ngsi-ld/v1/entityOperations/upsert
       "type": "Property", "value": "Blossom"
     },
     "sex": {
-      "type": "VocabularyProperty", "vocab": "Female"
+      "type": "VocabProperty", "vocab": "Female"
     },
     "phenologicalCondition": {
-      "type": "VocabularyProperty", "vocab": "grazingBaby"
+      "type": "VocabProperty", "vocab": "grazingBaby"
     },
     "reproductiveCondition": {
-      "type": "VocabularyProperty", "vocab": "noStatus"
+      "type": "VocabProperty", "vocab": "noStatus"
     },
     "legalId": {
       "type": "Property", "value": "F-cow102-Blossom"
@@ -521,13 +521,13 @@ curl -s -X POST 'http://'"${CONTEXT_BROKER}"'/ngsi-ld/v1/entityOperations/upsert
       "type": "Property", "value": "Buttercup"
     },
     "sex": {
-      "type": "VocabularyProperty", "vocab": "Female"
+      "type": "VocabProperty", "vocab": "Female"
     },
     "phenologicalCondition": {
-      "type": "VocabularyProperty", "vocab": "lactatingBaby"
+      "type": "VocabProperty", "vocab": "lactatingBaby"
     },
     "reproductiveCondition": {
-      "type": "VocabularyProperty", "vocab": "noStatus"
+      "type": "VocabProperty", "vocab": "noStatus"
     },
     "legalId": {
       "type": "Property", "value": "F-cow103-Buttercup"
@@ -559,17 +559,17 @@ curl -s -X POST 'http://'"${CONTEXT_BROKER}"'/ngsi-ld/v1/entityOperations/upsert
       "type": "Property", "value": "Twilight"
     },
     "sex": {
-      "type": "VocabularyProperty", "vocab": "Female"
+      "type": "VocabProperty", "vocab": "Female"
     },
     "phenologicalCondition": {
-      "type": "VocabularyProperty", "vocab": "femaleAdult"
+      "type": "VocabProperty", "vocab": "femaleAdult"
     },
     "healthCondition": {
-      "type": "VocabularyProperty", "vocab": "healthy",
+      "type": "VocabProperty", "vocab": "healthy",
       "observedAt": "2024-02-02T15:00:00.000Z"
     },
     "reproductiveCondition": {
-      "type": "VocabularyProperty", "vocab": "noStatus",
+      "type": "VocabProperty", "vocab": "noStatus",
       "observedAt": "2024-02-02T15:00:00.000Z"
     }
   },
@@ -684,7 +684,7 @@ curl -s -o /dev/null -X POST 'http://'"${CONTEXT_BROKER}"'/ngsi-ld/v1/entityOper
   {
     "id": "urn:ngsi-ld:Building:farm001",
     "type": "Building",
-    "category": {"type": "Property", "value": ["farm"]},
+    "category": {"type": "VocabProperty", "vocab": ["farm"]},
     "address": {
         "type": "Property",   
         "value": { "streetAddress": "Großer Stern 1", "addressRegion": "Berlin", "addressLocality": "Tiergarten", "postalCode": "10557"},
@@ -700,7 +700,7 @@ curl -s -o /dev/null -X POST 'http://'"${CONTEXT_BROKER}"'/ngsi-ld/v1/entityOper
   {
     "id": "urn:ngsi-ld:Building:barn002",
     "type": "Building",
-    "category": {"type": "Property", "value": ["barn"]},
+    "category": {"type": "VocabProperty", "vocab": ["barn"]},
     "address": {
         "type": "Property",
         "value": { "streetAddress": "Straße des 17. Juni", "addressRegion": "Berlin", "addressLocality": "Tiergarten", "postalCode": "10557"},
@@ -716,7 +716,7 @@ curl -s -o /dev/null -X POST 'http://'"${CONTEXT_BROKER}"'/ngsi-ld/v1/entityOper
   {
     "id": "urn:ngsi-ld:Building:tower003",
     "type": "Building",
-    "category": {"type": "Property", "value": ["water_tower"]},
+    "category": {"type": "VocabProperty", "vocab": ["water_tower"]},
     "address": {
         "type": "Property",
         "value": { "streetAddress": "John-Foster-Dulles-Allee", "addressRegion": "Berlin", "addressLocality": "Tiergarten", "postalCode": "10557"},
@@ -732,7 +732,7 @@ curl -s -o /dev/null -X POST 'http://'"${CONTEXT_BROKER}"'/ngsi-ld/v1/entityOper
   {
     "id": "urn:ngsi-ld:Building:farm002",
     "type": "Building",
-    "category": {"type": "Property", "value": ["farm"]},
+    "category": {"type": "VocabProperty", "vocab": ["farm"]},
     "address": {
         "type": "Property",
         "value": { "streetAddress": "Hardenbergplatz 8", "addressRegion": "Berlin", "addressLocality": "Tiergarten", "postalCode": "10787"},
