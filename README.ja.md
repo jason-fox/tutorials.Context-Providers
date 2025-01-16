@@ -599,8 +599,8 @@ curl -iX GET 'http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:Building:sto
         "value": "Bösebrücke Einkauf"
     },
     "category": {
-        "type": "Property",
-        "value": "commercial"
+        "type": "VocabProperty",
+        "vocab": "commercial"
     },
     "location": {
         "type": "GeoProperty",

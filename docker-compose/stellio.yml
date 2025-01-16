@@ -91,6 +91,18 @@ services:
       - APPLICATION_TENANTS_1_NAME=openiot
       - APPLICATION_TENANTS_1_ISSUER=https://sso.stellio.io/auth/realms/openiot
       - APPLICATION_TENANTS_1_DBSCHEMA=openiot
+      - APPLICATION_TENANTS_2_NAME=farmer
+      - APPLICATION_TENANTS_2_ISSUER=https://sso.stellio.io/auth/realms/farmer
+      - APPLICATION_TENANTS_2_DBSCHEMA=farmer
+      - APPLICATION_TENANTS_3_NAME=vet
+      - APPLICATION_TENANTS_3_ISSUER=https://sso.stellio.io/auth/realms/vet
+      - APPLICATION_TENANTS_3_DBSCHEMA=vet
+      - APPLICATION_TENANTS_4_NAME=contractor
+      - APPLICATION_TENANTS_4_ISSUER=https://sso.stellio.io/auth/realms/contractor
+      - APPLICATION_TENANTS_4_DBSCHEMA=contractor
+      - APPLICATION_TENANTS_5_NAME=weather
+      - APPLICATION_TENANTS_5_ISSUER=https://sso.stellio.io/auth/realms/weather
+      - APPLICATION_TENANTS_5_DBSCHEMA=weather
       - APPLICATION_PAGINATION_LIMIT-DEFAULT=30
       - APPLICATION_PAGINATION_LIMIT-MAX=1000
     ports:

@@ -22,7 +22,7 @@
 					},
 					{
 						"key": "Link",
-						"value": "<{{ngsi-context.jsonld}}>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json"
+						"value": "<{{ngsi-context.jsonld}}>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\""
 					}
 				],
 				"url": {
@@ -72,11 +72,11 @@
 					},
 					{
 						"key": "NGSILD-Tenant",
-						"value": "openiot"
+						"value": "farmer"
 					}
 				],
 				"url": {
-					"raw": "http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:Device:cow001",
+					"raw": "http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:Animal:cow001",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -86,7 +86,7 @@
 						"ngsi-ld",
 						"v1",
 						"entities",
-						"urn:ngsi-ld:Device:cow001"
+						"urn:ngsi-ld:Animal:cow001"
 					],
 					"query": [
 						{
@@ -135,7 +135,7 @@
 					},
 					{
 						"key": "Link",
-						"value": "<{{ngsi-context.jsonld}}>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json",
+						"value": "<{{ngsi-context.jsonld}}>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\"",
 						"type": "text"
 					}
 				],
@@ -231,7 +231,7 @@
 				"header": [
 					{
 						"key": "Link",
-						"value": "<{{ngsi-context.jsonld}}>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json"
+						"value": "<{{ngsi-context.jsonld}}>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\""
 					}
 				],
 				"body": {
@@ -376,7 +376,7 @@
 				"header": [
 					{
 						"key": "Link",
-						"value": "<{{ngsi-context.jsonld}}>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json"
+						"value": "<{{ngsi-context.jsonld}}>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\""
 					},
 					{
 						"key": "NGSILD-Tenant",
@@ -473,12 +473,11 @@
 				"header": [
 					{
 						"key": "Link",
-						"value": "<{{ngsi-context.jsonld}}>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json"
+						"value": "<{{ngsi-context.jsonld}}>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\""
 					},
 					{
 						"key": "NGSILD-Tenant",
-						"value": "farmer",
-						"disabled": true
+						"value": "farmer"
 					}
 				],
 				"body": {
@@ -819,7 +818,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"type\": \"ContextSourceRegistration\",\n  \"information\": [\n    {\n      \"entities\": [\n        {\n          \"type\": \"AgriPacel\"\n        }\n      ],\n      \"propertyNames\": [\"temperature\"]\n    }\n  ],\n  \"mode\": \"auxiliary\",\n  \"operations\": [\n    \"retrieveOps\"\n  ],\n  \"endpoint\": \"http://weather\"\n}\n",
+					"raw": "{\n  \"type\": \"ContextSourceRegistration\",\n  \"information\": [\n    {\n      \"entities\": [\n        {\n          \"type\": \"AgriParcel\"\n        }\n      ],\n      \"propertyNames\": [\"temperature\"]\n    }\n  ],\n  \"mode\": \"auxiliary\",\n  \"operations\": [\n    \"retrieveOps\"\n  ],\n  \"endpoint\": \"http://weather\"\n}\n",
 					"options": {
 						"raw": {
 							"language": "json"
